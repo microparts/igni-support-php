@@ -1,11 +1,10 @@
 <?php
 
-namespace Microparts\Support;
+namespace Microparts\Support\Validation;
 
 use Microparts\Support\Validation\Rules\BoolRule;
 use Microparts\Support\Validation\Rules\StringRule;
 use Microparts\Support\Validation\Rules\UuidRule;
-use Microparts\Support\Validation\ValidationException;
 
 /**
  * Created by Roquie.
