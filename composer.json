@@ -1,0 +1,25 @@
+{
+  "name": "microparts/igni-support-php",
+  "description": "Support for Igni PHP Framework.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "roquie",
+      "email": "roquie0@gmail.com"
+    }
+  ],
+  "require": {
+    "igniphp/framework": "dev-master#13990724b0cbac5717f92e9deffb676b237b7447",
+    "ramsey/uuid": "^3.8",
+    "rakit/validation": "^0.22.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Microparts\\Support\\": "src"
+    }
+  }
+}
