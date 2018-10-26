@@ -62,19 +62,23 @@ final class ErrorHandlerMiddleware implements MiddlewareInterface
         return Response::asJson($array, $statusCode);
     }
 
-
     /**
      * @param \Microparts\Support\Validation\ValidationException $exception
      * @return \Igni\Network\Http\Response
      */
     private function validationFormat(ValidationException $exception)
     {
+        $validation = [];
+        foreach ($exception->getErrors()->toArray() as $key => $error) {
+            $validation[$key] = array_values($error);
+        }
+
         $array = [
             'error' => [
                 'code'        => $exception->getCode(),
                 'message'     => $exception->getMessage(),
                 'status_code' => $exception->getStatusCode(),
-                'validation'  => $exception->getErrors()->toArray()
+                'validation'  => $validation
             ]
         ];
 
