@@ -2,7 +2,6 @@
 
 namespace Microparts\Support\Middleware;
 
-use ErrorException;
 use Igni\Network\Exception\HttpException;
 use Igni\Network\Http\Response;
 use Microparts\Support\Validation\ValidationException;
@@ -13,11 +12,11 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Throwable;
 
 /**
- * Class ErrorMiddleware
+ * Class ErrorHandlerMiddleware
  *
  * @package App
  */
-final class ErrorMiddleware implements MiddlewareInterface
+final class ErrorHandlerMiddleware implements MiddlewareInterface
 {
     /**
      * @see MiddlewareInterface::process
@@ -27,8 +26,6 @@ final class ErrorMiddleware implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $next): ResponseInterface
     {
-        $this->setErrorHandler();
-
         try {
             $response = $next->handle($request);
 
@@ -42,8 +39,6 @@ final class ErrorMiddleware implements MiddlewareInterface
                 return $this->format($exception->getCode(), $exception->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
             }
         }
-
-        $this->restoreErrorHandler();
 
         return $response;
     }
@@ -84,22 +79,5 @@ final class ErrorMiddleware implements MiddlewareInterface
         ];
 
         return Response::asJson($array, $exception->getStatusCode());
-    }
-
-    private function setErrorHandler(): void
-    {
-        set_error_handler(function (int $number, string $message, string $file, int $line) {
-
-            if ( ! (error_reporting() & $number)) {
-                return;
-            }
-
-            throw new ErrorException($message, 0, $number, $file, $line);
-        });
-    }
-
-    private function restoreErrorHandler(): void
-    {
-        restore_error_handler();
     }
 }
