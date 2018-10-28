@@ -4,6 +4,7 @@ namespace Microparts\Support\Validation;
 
 use Microparts\Support\Validation\Rules\BoolRule;
 use Microparts\Support\Validation\Rules\StringRule;
+use Microparts\Support\Validation\Rules\UniqueRule;
 use Microparts\Support\Validation\Rules\UuidRule;
 
 /**
@@ -23,14 +24,24 @@ class Validator
     /**
      * Validator constructor.
      *
+     * @param \PDO|null $pdo
      * @throws \Rakit\Validation\RuleQuashException
      */
-    public function __construct()
+    public function __construct(\PDO $pdo = null)
     {
         $this->validator = new \Rakit\Validation\Validator();
         $this->validator->addValidator('uuid', new UuidRule());
         $this->validator->addValidator('bool', new BoolRule());
         $this->validator->addValidator('string', new StringRule());
+        $this->validator->addValidator('unique', new UniqueRule($pdo));
+    }
+
+    /**
+     * @return \Rakit\Validation\Validator
+     */
+    public function getOriginalInstance(): \Rakit\Validation\Validator
+    {
+        return $this->validator;
     }
 
     /**

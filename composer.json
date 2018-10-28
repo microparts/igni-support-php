@@ -10,6 +10,7 @@
     }
   ],
   "require": {
+    "ext-pdo": "*",
     "igniphp/framework": "dev-master#13990724b0cbac5717f92e9deffb676b237b7447",
     "ramsey/uuid": "^3.8",
     "rakit/validation": "^0.22.0"
