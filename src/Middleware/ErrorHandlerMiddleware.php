@@ -44,12 +44,12 @@ final class ErrorHandlerMiddleware implements MiddlewareInterface
     }
 
     /**
-     * @param int|null $code
+     * @param $code
      * @param null|string $message
      * @param int|null $statusCode
      * @return \Igni\Network\Http\Response
      */
-    private function format(?int $code, ?string $message, ?int $statusCode = 500)
+    private function format($code, ?string $message, ?int $statusCode = 500)
     {
         $array = [
             'error' => [
