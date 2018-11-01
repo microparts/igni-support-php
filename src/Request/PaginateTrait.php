@@ -19,7 +19,7 @@ trait PaginateTrait
      * @param $adapter
      * @return array
      */
-    public function paginate(ServerRequestInterface $request, $adapter)
+    protected function paginate(ServerRequestInterface $request, $adapter)
     {
         $query = $request->getQueryParams();
 
