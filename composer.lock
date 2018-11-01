@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc43ef76935ca18c1fd6a126e1213571",
+    "content-hash": "4a4be4fbcc8ce5eff7d166a2211388a1",
     "packages": [
         {
             "name": "igniphp/container",
@@ -100,7 +100,7 @@
         },
         {
             "name": "igniphp/framework",
-            "version": "dev-master",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/igniphp/framework.git",
@@ -164,16 +164,16 @@
         },
         {
             "name": "igniphp/network",
-            "version": "0.3.3",
+            "version": "0.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/igniphp/network.git",
-                "reference": "7692036bf14070e754c1b9ce51950984e7d785e4"
+                "reference": "5b9e64b7074f6b7c7ac105c15ca6c7028c747aca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/igniphp/network/zipball/7692036bf14070e754c1b9ce51950984e7d785e4",
-                "reference": "7692036bf14070e754c1b9ce51950984e7d785e4",
+                "url": "https://api.github.com/repos/igniphp/network/zipball/5b9e64b7074f6b7c7ac105c15ca6c7028c747aca",
+                "reference": "5b9e64b7074f6b7c7ac105c15ca6c7028c747aca",
                 "shasum": ""
             },
             "require": {
@@ -216,7 +216,7 @@
                 "server",
                 "swoole"
             ],
-            "time": "2018-09-15T07:41:05+00:00"
+            "time": "2018-10-29T15:43:41+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -416,16 +416,16 @@
         },
         {
             "name": "psr/http-server-handler",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-server-handler.git",
-                "reference": "439d92054dc06097f2406ec074a2627839955a02"
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-server-handler/zipball/439d92054dc06097f2406ec074a2627839955a02",
-                "reference": "439d92054dc06097f2406ec074a2627839955a02",
+                "url": "https://api.github.com/repos/php-fig/http-server-handler/zipball/aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
                 "shasum": ""
             },
             "require": {
@@ -465,7 +465,7 @@
                 "response",
                 "server"
             ],
-            "time": "2018-01-22T17:04:15+00:00"
+            "time": "2018-10-30T16:46:14+00:00"
         },
         {
             "name": "psr/http-server-middleware",
@@ -617,16 +617,16 @@
         },
         {
             "name": "rakit/validation",
-            "version": "v0.22.0",
+            "version": "v0.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rakit/validation.git",
-                "reference": "81ca951a0595db0a0765f72a28b5792f0d6cd270"
+                "reference": "4c9261ba6b9c1c177e459e4711ae93680d74842a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rakit/validation/zipball/81ca951a0595db0a0765f72a28b5792f0d6cd270",
-                "reference": "81ca951a0595db0a0765f72a28b5792f0d6cd270",
+                "url": "https://api.github.com/repos/rakit/validation/zipball/4c9261ba6b9c1c177e459e4711ae93680d74842a",
+                "reference": "4c9261ba6b9c1c177e459e4711ae93680d74842a",
                 "shasum": ""
             },
             "require": {
@@ -653,7 +653,7 @@
                 }
             ],
             "description": "PHP Laravel like standalone validation library",
-            "time": "2018-09-18T13:40:16+00:00"
+            "time": "2018-10-29T15:25:35+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -739,7 +739,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.9.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -1415,16 +1415,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "6.1.3",
+            "version": "6.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "4d3ae9b21a7d7e440bd0cf65565533117976859f"
+                "reference": "807e6013b00af69b6c5d9ceb4282d0393dbb9d8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/4d3ae9b21a7d7e440bd0cf65565533117976859f",
-                "reference": "4d3ae9b21a7d7e440bd0cf65565533117976859f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/807e6013b00af69b6c5d9ceb4282d0393dbb9d8d",
+                "reference": "807e6013b00af69b6c5d9ceb4282d0393dbb9d8d",
                 "shasum": ""
             },
             "require": {
@@ -1474,7 +1474,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-10-23T05:59:32+00:00"
+            "time": "2018-10-31T16:06:48+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1618,16 +1618,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "21ad88bbba7c3d93530d93994e0a33cd45f02ace"
+                "reference": "c99e3be9d3e85f60646f152f9002d46ed7770d18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/21ad88bbba7c3d93530d93994e0a33cd45f02ace",
-                "reference": "21ad88bbba7c3d93530d93994e0a33cd45f02ace",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c99e3be9d3e85f60646f152f9002d46ed7770d18",
+                "reference": "c99e3be9d3e85f60646f152f9002d46ed7770d18",
                 "shasum": ""
             },
             "require": {
@@ -1663,7 +1663,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2018-02-01T13:16:43+00:00"
+            "time": "2018-10-30T05:52:18+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -2405,11 +2405,11 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "igniphp/framework": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-pdo": "*"
+    },
     "platform-dev": []
 }

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Microparts\Support\Middleware;
+namespace Microparts\Igni\Support\Middleware;
 
 use Igni\Network\Exception\HttpException;
 use Igni\Network\Http\Response;
-use Microparts\Support\Validation\ValidationException;
+use Microparts\Igni\Support\Validation\ValidationException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -63,7 +63,7 @@ final class ErrorHandlerMiddleware implements MiddlewareInterface
     }
 
     /**
-     * @param \Microparts\Support\Validation\ValidationException $exception
+     * @param \Microparts\Igni\Support\Validation\ValidationException $exception
      * @return \Igni\Network\Http\Response
      */
     private function validationFormat(ValidationException $exception)

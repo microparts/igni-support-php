@@ -1,6 +1,6 @@
 <?php
 
-namespace Microparts\Support\Validation\Rules;
+namespace Microparts\Igni\Support\Validation\Rules;
 
 use Ramsey\Uuid\Uuid;
 

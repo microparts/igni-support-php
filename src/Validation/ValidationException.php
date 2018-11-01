@@ -6,7 +6,7 @@
  * Date: 25/10/2018
  */
 
-namespace Microparts\Support\Validation;
+namespace Microparts\Igni\Support\Validation;
 
 
 use Rakit\Validation\ErrorBag;

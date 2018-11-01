@@ -6,7 +6,7 @@
  * Date: 28/10/2018
  */
 
-namespace Microparts\Support\Validation\Rules;
+namespace Microparts\Igni\Support\Validation\Rules;
 
 use PDO;
 use Rakit\Validation\Rule;

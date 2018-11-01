@@ -1,11 +1,11 @@
 <?php
 
-namespace Microparts\Support\Validation;
+namespace Microparts\Igni\Support\Validation;
 
-use Microparts\Support\Validation\Rules\BoolRule;
-use Microparts\Support\Validation\Rules\StringRule;
-use Microparts\Support\Validation\Rules\UniqueRule;
-use Microparts\Support\Validation\Rules\UuidRule;
+use Microparts\Igni\Support\Validation\Rules\BoolRule;
+use Microparts\Igni\Support\Validation\Rules\StringRule;
+use Microparts\Igni\Support\Validation\Rules\UniqueRule;
+use Microparts\Igni\Support\Validation\Rules\UuidRule;
 
 /**
  * Created by Roquie.
@@ -48,7 +48,7 @@ class Validator
      * @param array $inputs
      * @param array $rules
      * @param array $messages
-     * @throws \Microparts\Support\Validation\ValidationException
+     * @throws \Microparts\Igni\Support\Validation\ValidationException
      */
     public function applyNow(array $inputs, array $rules, array $messages = [])
     {
