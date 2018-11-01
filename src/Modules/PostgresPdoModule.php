@@ -14,7 +14,7 @@ use PDO;
 use Psr\Container\ContainerInterface;
 use Tmconsulting\Configuration;
 
-class PdoModule implements ServiceProvider
+class PostgresPdoModule implements ServiceProvider
 {
     /**
      * @param ServiceLocator|ContainerInterface $container
