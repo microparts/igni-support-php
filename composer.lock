@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a4be4fbcc8ce5eff7d166a2211388a1",
+    "content-hash": "27f597331a6e2cafead5c290a7d6c916",
     "packages": [
         {
             "name": "igniphp/container",
@@ -217,6 +217,45 @@
                 "swoole"
             ],
             "time": "2018-10-29T15:43:41+00:00"
+        },
+        {
+            "name": "microparts/configuration-php",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/microparts/configuration-php.git",
+                "reference": "bccea485ef9df59e49886257158cbfa549c9deb7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/microparts/configuration-php/zipball/bccea485ef9df59e49886257158cbfa549c9deb7",
+                "reference": "bccea485ef9df59e49886257158cbfa549c9deb7",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/yaml": "^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tmconsulting\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shatilo Reymond",
+                    "email": "shatilo.reymond@gmail.com"
+                }
+            ],
+            "description": "A confugration module for PHP microservices.",
+            "time": "2018-10-31T10:06:36+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -871,6 +910,65 @@
                 "url"
             ],
             "time": "2018-10-02T12:40:59+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v4.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "367e689b2fdc19965be435337b50bc8adf2746c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/367e689b2fdc19965be435337b50bc8adf2746c9",
+                "reference": "367e689b2fdc19965be435337b50bc8adf2746c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "conflict": {
+                "symfony/console": "<3.4"
+            },
+            "require-dev": {
+                "symfony/console": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-10-02T16:36:10+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",

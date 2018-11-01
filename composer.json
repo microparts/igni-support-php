@@ -12,6 +12,7 @@
   "require": {
     "ext-pdo": "*",
     "igniphp/framework": "^2.0.0",
+    "microparts/configuration-php": "^1.0",
     "ramsey/uuid": "^3.8",
     "rakit/validation": "^0.22.0"
   },
