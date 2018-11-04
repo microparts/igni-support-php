@@ -6,6 +6,7 @@ use Microparts\Igni\Support\Validation\Rules\BoolRule;
 use Microparts\Igni\Support\Validation\Rules\StringRule;
 use Microparts\Igni\Support\Validation\Rules\UniqueRule;
 use Microparts\Igni\Support\Validation\Rules\UuidRule;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 /**
  * Created by Roquie.
@@ -42,6 +43,19 @@ class Validator
     public function getOriginalInstance(): \Rakit\Validation\Validator
     {
         return $this->validator;
+    }
+
+    /**
+     * @param array $inputs
+     * @param array $rules
+     */
+    public function routeNow(array $inputs, array $rules)
+    {
+        $validation = $this->validator->validate($inputs, $rules);
+
+        if ($validation->fails()) {
+            throw new ResourceNotFoundException('The resource was not found.');
+        }
     }
 
     /**
