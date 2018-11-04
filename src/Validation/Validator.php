@@ -3,6 +3,7 @@
 namespace Microparts\Igni\Support\Validation;
 
 use Microparts\Igni\Support\Validation\Rules\BoolRule;
+use Microparts\Igni\Support\Validation\Rules\ExistsRule;
 use Microparts\Igni\Support\Validation\Rules\StringRule;
 use Microparts\Igni\Support\Validation\Rules\UniqueRule;
 use Microparts\Igni\Support\Validation\Rules\UuidRule;
@@ -35,6 +36,7 @@ class Validator
         $this->validator->addValidator('bool', new BoolRule());
         $this->validator->addValidator('string', new StringRule());
         $this->validator->addValidator('unique', new UniqueRule($pdo));
+        $this->validator->addValidator('exists', new ExistsRule($pdo));
     }
 
     /**
