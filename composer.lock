@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23c71d7b76c5328a8853bb01e7e2d98e",
+    "content-hash": "a056ad9d16f8bc4578299cb7d315d05d",
     "packages": [
         {
             "name": "igniphp/container",
@@ -220,28 +220,106 @@
         },
         {
             "name": "microparts/configuration-php",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/microparts/configuration-php.git",
-                "reference": "bccea485ef9df59e49886257158cbfa549c9deb7"
+                "reference": "7c9f9ce1d2d26ca558ec444e8f9cf3ee8218a647"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/microparts/configuration-php/zipball/bccea485ef9df59e49886257158cbfa549c9deb7",
-                "reference": "bccea485ef9df59e49886257158cbfa549c9deb7",
+                "url": "https://api.github.com/repos/microparts/configuration-php/zipball/7c9f9ce1d2d26ca558ec444e8f9cf3ee8218a647",
+                "reference": "7c9f9ce1d2d26ca558ec444e8f9cf3ee8218a647",
                 "shasum": ""
             },
             "require": {
-                "symfony/yaml": "^4.0"
+                "ext-yaml": "*",
+                "psr/log": "^1.0",
+                "symfony/yaml": "^4.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.5"
+                "phpunit/phpunit": "^7.4.3",
+                "symfony/var-dumper": "^4.1"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Tmconsulting\\": "src"
+                    "Microparts\\Configuration\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU GPL v3"
+            ],
+            "authors": [
+                {
+                    "name": "Roquie",
+                    "email": "roquie0@gmail.com"
+                },
+                {
+                    "name": "Shatilo Reymond",
+                    "email": "shatilo.reymond@gmail.com"
+                }
+            ],
+            "description": "A configuration module for PHP microservices.",
+            "time": "2018-11-06T10:22:11+00:00"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "1.24.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+                "doctrine/couchdb": "~1.0@dev",
+                "graylog2/gelf-php": "~1.0",
+                "jakub-onderka/php-parallel-lint": "0.9",
+                "php-amqplib/php-amqplib": "~2.4",
+                "php-console/php-console": "^3.1.3",
+                "phpunit/phpunit": "~4.5",
+                "phpunit/phpunit-mock-objects": "2.3.0",
+                "ruflin/elastica": ">=0.90 <3.0",
+                "sentry/sentry": "^0.13",
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
+                "rollbar/rollbar": "Allow sending log messages to Rollbar",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
+                "sentry/sentry": "Allow sending log messages to a Sentry server"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -250,12 +328,19 @@
             ],
             "authors": [
                 {
-                    "name": "Shatilo Reymond",
-                    "email": "shatilo.reymond@gmail.com"
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
                 }
             ],
-            "description": "A confugration module for PHP microservices.",
-            "time": "2018-10-31T10:06:36+00:00"
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "time": "2018-11-05T09:00:11+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -656,16 +741,16 @@
         },
         {
             "name": "rakit/validation",
-            "version": "v0.22.1",
+            "version": "v0.22.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rakit/validation.git",
-                "reference": "4c9261ba6b9c1c177e459e4711ae93680d74842a"
+                "reference": "b989676dd26bb785a17754634bc485e811578221"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rakit/validation/zipball/4c9261ba6b9c1c177e459e4711ae93680d74842a",
-                "reference": "4c9261ba6b9c1c177e459e4711ae93680d74842a",
+                "url": "https://api.github.com/repos/rakit/validation/zipball/b989676dd26bb785a17754634bc485e811578221",
+                "reference": "b989676dd26bb785a17754634bc485e811578221",
                 "shasum": ""
             },
             "require": {
@@ -692,7 +777,7 @@
                 }
             ],
             "description": "PHP Laravel like standalone validation library",
-            "time": "2018-10-29T15:25:35+00:00"
+            "time": "2018-11-03T08:30:19+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -836,16 +921,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v4.1.6",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "537803f0bdfede36b9acef052d2e4d447d9fa0e9"
+                "reference": "d4a3c14cfbe6b9c05a1d6e948654022d4d1ad3fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/537803f0bdfede36b9acef052d2e4d447d9fa0e9",
-                "reference": "537803f0bdfede36b9acef052d2e4d447d9fa0e9",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/d4a3c14cfbe6b9c05a1d6e948654022d4d1ad3fd",
+                "reference": "d4a3c14cfbe6b9c05a1d6e948654022d4d1ad3fd",
                 "shasum": ""
             },
             "require": {
@@ -909,11 +994,11 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-10-02T12:40:59+00:00"
+            "time": "2018-10-28T18:38:52+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.1.6",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -1148,16 +1233,16 @@
         },
         {
             "name": "microparts/paginateformatter-php",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/microparts/paginateformatter-php.git",
-                "reference": "4c30ce755d7c1bd6202d1aadf6275cb001271cc9"
+                "reference": "596596c2a64ba97e5b7b0582c495aafd9da9bdf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/microparts/paginateformatter-php/zipball/4c30ce755d7c1bd6202d1aadf6275cb001271cc9",
-                "reference": "4c30ce755d7c1bd6202d1aadf6275cb001271cc9",
+                "url": "https://api.github.com/repos/microparts/paginateformatter-php/zipball/596596c2a64ba97e5b7b0582c495aafd9da9bdf6",
+                "reference": "596596c2a64ba97e5b7b0582c495aafd9da9bdf6",
                 "shasum": ""
             },
             "require": {
@@ -1176,7 +1261,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "GNU GPL v3"
             ],
             "authors": [
                 {
@@ -1185,7 +1270,7 @@
                 }
             ],
             "description": "Pagination format for TeamcIO standards.",
-            "time": "2018-11-01T15:22:22+00:00"
+            "time": "2018-11-05T20:33:07+00:00"
         },
         {
             "name": "myclabs/deep-copy",

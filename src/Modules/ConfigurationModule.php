@@ -9,8 +9,9 @@
 namespace Microparts\Igni\Support\Modules;
 
 use Igni\Application\Providers\ServiceProvider;
+use Microparts\Configuration\Configuration;
 use Psr\Container\ContainerInterface;
-use Tmconsulting\Configuration;
+use Psr\Log\LoggerInterface;
 
 class ConfigurationModule implements ServiceProvider
 {
@@ -19,8 +20,11 @@ class ConfigurationModule implements ServiceProvider
      */
     public function provideServices($container): void
     {
-        $container->share(Configuration::class, function () {
-            return new Configuration();
+        $container->share(Configuration::class, function (ContainerInterface $container) {
+            $conf = new Configuration('./configuration');
+            $conf->setLogger($container->get(LoggerInterface::class));
+
+            return $conf->load();
         });
     }
 }
