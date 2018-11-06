@@ -14,7 +14,7 @@ use Igni\Application\Providers\ControllerProvider;
 use Igni\Network\Http\Response;
 use Igni\Network\Http\Route;
 use LogicException;
-use Tmconsulting\Configuration;
+use Microparts\Configuration\Configuration;
 
 class ServiceInfoModule implements ControllerProvider
 {

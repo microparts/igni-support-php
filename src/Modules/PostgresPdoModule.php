@@ -10,9 +10,9 @@ namespace Microparts\Igni\Support\Modules;
 
 use Igni\Application\Providers\ServiceProvider;
 use Igni\Container\ServiceLocator;
+use Microparts\Configuration\Configuration;
 use PDO;
 use Psr\Container\ContainerInterface;
-use Tmconsulting\Configuration;
 
 class PostgresPdoModule implements ServiceProvider
 {
