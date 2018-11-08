@@ -5,6 +5,7 @@ namespace Microparts\Igni\Support\Middleware;
 use Igni\Network\Exception\HttpException;
 use Igni\Network\Http\Response;
 use Microparts\Igni\Support\Validation\ValidationException;
+use PDOException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -29,6 +30,8 @@ final class ErrorHandlerMiddleware implements MiddlewareInterface
         try {
             $response = $next->handle($request);
 
+        } catch (PDOException $exception) {
+            return $this->format('db', 'Database error.');
         } catch (Throwable $exception) {
             if ($exception instanceof HttpException) {
                 $response = $exception->toResponse();
@@ -53,7 +56,7 @@ final class ErrorHandlerMiddleware implements MiddlewareInterface
     {
         $array = [
             'error' => [
-                'code'        => $code,
+                'code'        => (string) $code,
                 'message'     => $message,
                 'status_code' => $statusCode,
             ]
