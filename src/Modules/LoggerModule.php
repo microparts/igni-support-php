@@ -9,7 +9,6 @@
 namespace Microparts\Igni\Support\Modules;
 
 use Igni\Application\Providers\ServiceProvider;
-use Microparts\Configuration\Configuration;
 use Monolog\Handler\ErrorLogHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
@@ -22,11 +21,11 @@ class LoggerModule implements ServiceProvider
      */
     public function provideServices($container): void
     {
-        $container->share(LoggerInterface::class, function (ContainerInterface $container) {
+        $container->share(LoggerInterface::class, function () {
             $logger = new Logger('App');
             $logger->pushHandler(new ErrorLogHandler(
                 ErrorLogHandler::OPERATING_SYSTEM,
-                $this->chooseLogLevel($container)
+                $this->chooseLogLevel()
             ));
 
             return $logger;
@@ -34,15 +33,12 @@ class LoggerModule implements ServiceProvider
     }
 
     /**
-     * @param \Psr\Container\ContainerInterface $container
      * @return int
      */
-    protected function chooseLogLevel(ContainerInterface $container): int
+    protected function chooseLogLevel(): int
     {
-        $conf = $container->get(Configuration::class);
-
         $level = Logger::INFO;
-        if ($conf->get('debug', false)) {
+        if (getenv('DEBUG') === 'true') {
             $level = Logger::DEBUG;
         }
 
