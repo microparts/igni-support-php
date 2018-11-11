@@ -2,7 +2,7 @@
   "name": "microparts/igni-support-php",
   "description": "Support for Igni PHP Framework.",
   "type": "library",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "authors": [
     {
       "name": "roquie",
