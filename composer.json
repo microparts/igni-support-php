@@ -17,7 +17,6 @@
     "ramsey/uuid": "^3.8",
     "phpunit/phpunit": "^7.4",
     "rakit/validation": "^0.22.0",
-    "igniphp/framework": "^2.0.0",
     "microparts/paginateformatter-php": "^1.0",
     "microparts/configuration-php": "^2.0"
   },
