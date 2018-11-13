@@ -164,16 +164,16 @@
         },
         {
             "name": "igniphp/network",
-            "version": "0.3.4",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/igniphp/network.git",
-                "reference": "5b9e64b7074f6b7c7ac105c15ca6c7028c747aca"
+                "reference": "4e99bed327fd3850f6d0da3d7cc21e3882cb79e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/igniphp/network/zipball/5b9e64b7074f6b7c7ac105c15ca6c7028c747aca",
-                "reference": "5b9e64b7074f6b7c7ac105c15ca6c7028c747aca",
+                "url": "https://api.github.com/repos/igniphp/network/zipball/4e99bed327fd3850f6d0da3d7cc21e3882cb79e8",
+                "reference": "4e99bed327fd3850f6d0da3d7cc21e3882cb79e8",
                 "shasum": ""
             },
             "require": {
@@ -216,7 +216,7 @@
                 "server",
                 "swoole"
             ],
-            "time": "2018-10-29T15:43:41+00:00"
+            "time": "2018-11-13T13:03:06+00:00"
         },
         {
             "name": "microparts/configuration-php",
@@ -741,16 +741,16 @@
         },
         {
             "name": "rakit/validation",
-            "version": "v0.22.2",
+            "version": "v0.22.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rakit/validation.git",
-                "reference": "b989676dd26bb785a17754634bc485e811578221"
+                "reference": "61ed77b772c214faa67aaf1c4adf81502b06cd4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rakit/validation/zipball/b989676dd26bb785a17754634bc485e811578221",
-                "reference": "b989676dd26bb785a17754634bc485e811578221",
+                "url": "https://api.github.com/repos/rakit/validation/zipball/61ed77b772c214faa67aaf1c4adf81502b06cd4b",
+                "reference": "61ed77b772c214faa67aaf1c4adf81502b06cd4b",
                 "shasum": ""
             },
             "require": {
@@ -777,7 +777,7 @@
                 }
             ],
             "description": "PHP Laravel like standalone validation library",
-            "time": "2018-11-03T08:30:19+00:00"
+            "time": "2018-11-10T03:57:56+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -1233,16 +1233,16 @@
         },
         {
             "name": "microparts/paginateformatter-php",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/microparts/paginateformatter-php.git",
-                "reference": "596596c2a64ba97e5b7b0582c495aafd9da9bdf6"
+                "reference": "c7cc792b02be75c28dad456fbac332cf631c4e9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/microparts/paginateformatter-php/zipball/596596c2a64ba97e5b7b0582c495aafd9da9bdf6",
-                "reference": "596596c2a64ba97e5b7b0582c495aafd9da9bdf6",
+                "url": "https://api.github.com/repos/microparts/paginateformatter-php/zipball/c7cc792b02be75c28dad456fbac332cf631c4e9c",
+                "reference": "c7cc792b02be75c28dad456fbac332cf631c4e9c",
                 "shasum": ""
             },
             "require": {
@@ -1270,7 +1270,7 @@
                 }
             ],
             "description": "Pagination format for TeamcIO standards.",
-            "time": "2018-11-05T20:33:07+00:00"
+            "time": "2018-11-09T11:00:44+00:00"
         },
         {
             "name": "myclabs/deep-copy",

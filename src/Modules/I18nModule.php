@@ -8,23 +8,32 @@
 
 namespace Microparts\Igni\Support\Modules;
 
-use Igni\Application\Providers\ServiceProvider;
-use Igni\Network\Http\ServerRequest;
+use Igni\Application\Http\MiddlewareAggregator;
+use Igni\Application\Providers\MiddlewareProvider;
 use Microparts\Configuration\Configuration;
 use Microparts\I18n\I18nInterface;
 use Microparts\I18n\Manager;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
-class I18nModule implements ServiceProvider
+class I18nModule implements MiddlewareProvider
 {
     /**
-     * @param \Igni\Container\ServiceLocator|ContainerInterface $container
+     * @param \Igni\Application\Http\MiddlewareAggregator|\Igni\Application\HttpApplication $aggregate
      */
-    public function provideServices($container): void
+    public function provideMiddleware(MiddlewareAggregator $aggregate): void
     {
-        $container->share(I18nInterface::class, function (ContainerInterface $container) {
-            $manager = new Manager($container->get(Configuration::class));
-            return $manager->withMessage(ServerRequest::fromGlobals())->load();
+        /** @var \Igni\Container\ServiceLocator $container */
+        $container = $aggregate->getContainer();
+
+        $aggregate->use(function (ServerRequestInterface $request, callable $next) use ($container) {
+            $container->share(I18nInterface::class, function (ContainerInterface $container) use ($request) {
+                $manager = new Manager($container->get(Configuration::class));
+                return $manager->withMessage($request)->load();
+            });
+
+            return $next($request);
         });
     }
 }
+
