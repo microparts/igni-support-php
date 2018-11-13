@@ -8,6 +8,7 @@
 
 namespace Microparts\Igni\Support\Modules;
 
+use Igni\Application\Providers\ServiceProvider;
 use Microparts\Configuration\Configuration;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
