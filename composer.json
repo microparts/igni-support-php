@@ -11,7 +11,8 @@
   ],
   "require": {
     "ext-pdo": "*",
-    "monolog/monolog": "^1.24"
+    "monolog/monolog": "^1.24",
+    "illuminate/container": "^5.7"
   },
   "require-dev": {
     "ramsey/uuid": "^3.8",

@@ -9,7 +9,6 @@
 namespace Microparts\Igni\Support\Modules;
 
 use Igni\Application\Providers\ServiceProvider;
-use Igni\Container\ServiceLocator;
 use Microparts\Configuration\Configuration;
 use PDO;
 use Psr\Container\ContainerInterface;
@@ -17,11 +16,11 @@ use Psr\Container\ContainerInterface;
 class PostgresPdoModule implements ServiceProvider
 {
     /**
-     * @param ServiceLocator|ContainerInterface $container
+     * @param \Illuminate\Container\Container|ContainerInterface $container
      */
     public function provideServices($container): void
     {
-        $container->share(PDO::class, function (ContainerInterface $container) {
+        $container->bind(PDO::class, function (ContainerInterface $container) {
             $conf = $container->get(Configuration::class);
             $dsn = "pgsql:dbname={$conf->get('db.name')};host={$conf->get('db.host')}";
             $pdo = new PDO($dsn, $conf->get('db.user'), $conf->get('db.pwd'));

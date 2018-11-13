@@ -17,11 +17,11 @@ use Psr\Log\LoggerInterface;
 class LoggerModule implements ServiceProvider
 {
     /**
-     * @param \Igni\Container\ServiceLocator|ContainerInterface $container
+     * @param \Illuminate\Container\Container|ContainerInterface $container
      */
     public function provideServices($container): void
     {
-        $container->share(LoggerInterface::class, function () {
+        $container->bind(LoggerInterface::class, function () {
             $logger = new Logger('App');
             $logger->pushHandler(new ErrorLogHandler(
                 ErrorLogHandler::OPERATING_SYSTEM,

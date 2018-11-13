@@ -16,11 +16,11 @@ use Psr\Container\ContainerInterface;
 class ValidationModule implements ServiceProvider
 {
     /**
-     * @param \Igni\Container\ServiceLocator|ContainerInterface $container
+     * @param \Illuminate\Container\Container|ContainerInterface $container
      */
     public function provideServices($container): void
     {
-        $container->share(Validator::class, function (ContainerInterface $container) {
+        $container->bind(Validator::class, function (ContainerInterface $container) {
             return new Validator($container->get(PDO::class));
         });
     }
