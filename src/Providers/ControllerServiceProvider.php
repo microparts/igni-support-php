@@ -29,7 +29,7 @@ class ControllerServiceProvider implements ControllerProvider
 
         foreach ($this->controllers as $controller) {
             $container->register($controller);
-            $locator->share($controller);
+            $locator->bind($controller);
         }
     }
 }

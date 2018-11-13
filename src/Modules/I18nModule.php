@@ -8,6 +8,8 @@
 
 namespace Microparts\Igni\Support\Modules;
 
+use Igni\Application\Http\MiddlewareAggregator;
+use Igni\Application\Providers\MiddlewareProvider;
 use Microparts\Configuration\Configuration;
 use Microparts\I18n\I18nInterface;
 use Microparts\I18n\Manager;
