@@ -11,15 +11,21 @@
   ],
   "require": {
     "ext-pdo": "*",
-    "igniphp/framework": "^2.0.0",
-    "microparts/configuration-php": "^2.0",
-    "ramsey/uuid": "^3.8",
-    "rakit/validation": "^0.22.0",
     "monolog/monolog": "^1.24"
   },
   "require-dev": {
+    "ramsey/uuid": "^3.8",
     "phpunit/phpunit": "^7.4",
-    "microparts/paginateformatter-php": "^1.0"
+    "rakit/validation": "^0.22.0",
+    "igniphp/framework": "^2.0.0",
+    "microparts/paginateformatter-php": "^1.0",
+    "microparts/configuration-php": "^2.0"
+  },
+  "suggest": {
+    "rakit/validation": "This package is needs to install if u use validation in app.",
+    "ramsey/uuid": "This package is need to install if u use uuid validation rule.",
+    "microparts/configuration-php": "For usage Configuration module in your application must install [microparts/configuration-php] package",
+    "igniphp/framework": "For usage, this package in your application must install this framework."
   },
   "autoload": {
     "psr-4": {
