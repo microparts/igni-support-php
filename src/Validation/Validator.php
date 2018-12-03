@@ -56,7 +56,7 @@ class Validator
         $validation = $this->validator->validate($inputs, $rules);
 
         if ($validation->fails()) {
-            throw new ResourceNotFoundException('The resource was not found.');
+            throw new ResourceNotFoundException('The resource was not found.', 404);
         }
     }
 
