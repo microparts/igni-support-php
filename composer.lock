@@ -2333,12 +2333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/roquie/database.git",
-                "reference": "c4365aa3f1ac4b0a1eadba7f85268ff9709651b6"
+                "reference": "8a060f4bd8ea2cf6696e74332aaf0c7f69e3e3ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roquie/database/zipball/c4365aa3f1ac4b0a1eadba7f85268ff9709651b6",
-                "reference": "c4365aa3f1ac4b0a1eadba7f85268ff9709651b6",
+                "url": "https://api.github.com/repos/roquie/database/zipball/8a060f4bd8ea2cf6696e74332aaf0c7f69e3e3ad",
+                "reference": "8a060f4bd8ea2cf6696e74332aaf0c7f69e3e3ad",
                 "shasum": ""
             },
             "require": {
@@ -2379,7 +2379,7 @@
                 }
             ],
             "description": "Great tool for working with database migrations and seeds.",
-            "time": "2018-12-03T00:06:15+00:00"
+            "time": "2018-12-03T01:41:07+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
