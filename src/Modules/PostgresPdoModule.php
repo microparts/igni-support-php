@@ -41,7 +41,7 @@ class PostgresPdoModule implements ServiceProvider
                 Seed::new($pdo)->run();
             }
 
-            $container->bind(PDO::class, function () use ($pdo) {
+            $container->singleton(PDO::class, function () use ($pdo) {
                 return $pdo;
             });
         };

@@ -20,7 +20,7 @@ class ValidationModule implements ServiceProvider
      */
     public function provideServices($container): void
     {
-        $container->bind(Validator::class, function (ContainerInterface $container) {
+        $container->singleton(Validator::class, function (ContainerInterface $container) {
             return new Validator($container->get(PDO::class));
         });
     }

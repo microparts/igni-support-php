@@ -20,7 +20,7 @@ class ConfigurationModule implements ServiceProvider
      */
     public function provideServices($container): void
     {
-        $container->bind(Configuration::class, function (ContainerInterface $container) {
+        $container->singleton(Configuration::class, function (ContainerInterface $container) {
             $conf = new Configuration('./configuration');
             $conf->setLogger($container->get(LoggerInterface::class));
 

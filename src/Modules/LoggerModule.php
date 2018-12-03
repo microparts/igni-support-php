@@ -26,7 +26,7 @@ class LoggerModule implements ServiceProvider
     {
         // Create Monolog logger without fucking brackets -> [] []  [] []  [] []  [] []  [] []
         // if context and extra is empty.
-        $container->bind(LoggerInterface::class, function () {
+        $container->singleton(LoggerInterface::class, function () {
             $logger = new Logger(self::CHANNEL);
             $handler = new ErrorLogHandler(ErrorLogHandler::OPERATING_SYSTEM, $this->chooseLogLevel());
             $formatter = new LineFormatter('[%datetime%] %channel%.%level_name%: %message% %context% %extra%');
