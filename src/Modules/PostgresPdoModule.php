@@ -33,8 +33,13 @@ class PostgresPdoModule implements ServiceProvider
     private function migrate(ConfigurationInterface $conf, ContainerInterface $container)
     {
         return function ($pdo) use ($conf, $container) {
-            $conf['db.migrate.auto'] || $this->apply($conf, $pdo);
-            $conf['db.seed.auto'] || Seed::new($pdo)->run();
+            if ($conf['db.migrate.auto']) {
+                $this->apply($conf, $pdo);
+            }
+
+            if ($conf['db.seed.auto']) {
+                Seed::new($pdo)->run();
+            }
 
             $container->bind(PDO::class, function () use ($pdo) {
                 return $pdo;
@@ -50,7 +55,9 @@ class PostgresPdoModule implements ServiceProvider
     {
         $migrate = Migrate::new($pdo);
 
-        $conf['db.migrate.drop'] || $migrate->drop();
+        if ($conf['db.migrate.drop']) {
+            $migrate->drop();
+        }
 
         $migrate
             ->install()
