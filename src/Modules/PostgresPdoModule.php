@@ -41,10 +41,26 @@ class PostgresPdoModule implements ServiceProvider
                 Seed::new($pdo)->run();
             }
 
-            $container->singleton(PDO::class, function () use ($pdo) {
-                return $pdo;
+            $container->bind(PDO::class, function () use ($pdo, $conf) {
+                return $this->reconnectIfClosed($pdo, $conf);
             });
         };
+    }
+
+    /**
+     * If database close connection, reconnect if you want.
+     *
+     * @param \PDO $pdo
+     * @param \Microparts\Configuration\ConfigurationInterface $conf
+     * @return \PDO
+     */
+    private function reconnectIfClosed(PDO $pdo, ConfigurationInterface $conf)
+    {
+        if ($pdo instanceof PDO) {
+            return $pdo;
+        }
+
+        return new PDO($this->buildDsn($conf));
     }
 
     /**
