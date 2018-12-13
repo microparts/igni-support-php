@@ -42,7 +42,10 @@ class PostgresPdoModule implements ServiceProvider
             }
 
             $container->bind(PDO::class, function () use ($pdo, $conf) {
-                return $this->reconnectIfClosed($pdo, $conf);
+                $conn = $this->reconnectIfClosed($pdo, $conf);
+                $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+                return $conn;
             });
         };
     }
