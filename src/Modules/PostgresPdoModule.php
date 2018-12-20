@@ -16,13 +16,12 @@ class PostgresPdoModule implements ServiceProvider
 {
     /**
      * @param Container|ContainerInterface $container
-     * @throws \Illuminate\Container\EntryNotFoundException
      */
     public function provideServices($container): void
     {
         $conf = $container->get(Configuration::class);
 
-        Wait::connection($this->buildDsn($conf), $this->migrate($conf, $container));
+        Wait::persistent($this->buildDsn($conf), $this->migrate($conf, $container));
     }
 
     /**
