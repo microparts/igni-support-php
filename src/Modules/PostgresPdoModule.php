@@ -40,11 +40,9 @@ class PostgresPdoModule implements ServiceProvider
                 Seed::new($pdo)->run();
             }
 
-            $container->bind(PDO::class, function () use ($pdo, $conf) {
+            $container->singleton(PDO::class, function () use ($pdo, $conf) {
                 $conn = $this->reconnectIfClosed($pdo, $conf);
                 $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-                $conn->setAttribute(PDO::ATTR_PERSISTENT, true);
-
                 return $conn;
             });
         };
