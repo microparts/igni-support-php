@@ -1,37 +1,58 @@
-<?php declare(strict_types=1);
+<?php
+/**
+ * Created by Roquie.
+ * E-mail: roquie0@gmail.com
+ * GitHub: Roquie
+ * Date: 01/11/2018
+ */
 
 namespace Microparts\Igni\Support\Modules;
 
-use Igni\Application\Providers\ServiceProvider;
-use Illuminate\Container\Container;
+use Igni\Application\Http\MiddlewareAggregator;
+use Igni\Application\Providers\MiddlewareProvider;
 use Microparts\Configuration\Configuration;
+use Psr\Http\Message\ServerRequestInterface;
 use Microparts\Configuration\ConfigurationInterface;
 use PDO;
-use Psr\Container\ContainerInterface;
 use Roquie\Database\Connection\Wait\Wait;
 use Roquie\Database\Migration\Migrate;
 use Roquie\Database\Seed\Seed;
 
-class PostgresPdoModule implements ServiceProvider
+class PostgresPdoModule implements MiddlewareProvider
 {
     /**
-     * @param Container|ContainerInterface $container
+     * @param \Igni\Application\Http\MiddlewareAggregator|\Igni\Application\HttpApplication $aggregate
      */
-    public function provideServices($container): void
+    public function provideMiddleware(MiddlewareAggregator $aggregate): void
     {
+        /** @var \Illuminate\Container\Container $container */
+        $container = $aggregate->getContainer();
         $conf = $container->get(Configuration::class);
 
-        Wait::persistent($this->buildDsn($conf), $this->migrate($conf, $container));
+        Wait::connection($this->buildDsn($conf), $this->migrate($conf));
+
+        $aggregate->use(function (ServerRequestInterface $request, callable $next) use ($conf, $container) {
+            $conn = $this->createPdo($conf);
+
+            $container->instance(PDO::class, $conn);
+            $result = $next($request);
+
+            // Close connection after request is executed.
+            // SELECT * FROM pg_stat_activity WHERE pg_stat_activity.datname = '!!database_name' AND pid <> pg_backend_pid();
+            $conn = null;
+            $container->forgetInstance(PDO::class);
+
+            return $result;
+        });
     }
 
     /**
      * @param \Microparts\Configuration\ConfigurationInterface $conf
-     * @param ContainerInterface|Container $container
      * @return \Closure
      */
-    private function migrate(ConfigurationInterface $conf, ContainerInterface $container)
+    private function migrate(ConfigurationInterface $conf)
     {
-        return function ($pdo) use ($conf, $container) {
+        return function ($pdo) use ($conf) {
             if ($conf['db.migrate.auto']) {
                 $this->apply($conf, $pdo);
             }
@@ -40,28 +61,22 @@ class PostgresPdoModule implements ServiceProvider
                 Seed::new($pdo)->run();
             }
 
-            $container->singleton(PDO::class, function () use ($pdo, $conf) {
-                $conn = $this->reconnectIfClosed($pdo, $conf);
-                $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-                return $conn;
-            });
+            $pdo = null;
         };
     }
 
     /**
-     * If database close connection, reconnect if you want.
+     * Create pdo-instance.
      *
-     * @param \PDO $pdo
      * @param \Microparts\Configuration\ConfigurationInterface $conf
      * @return \PDO
      */
-    private function reconnectIfClosed(PDO $pdo, ConfigurationInterface $conf)
+    private function createPdo(ConfigurationInterface $conf)
     {
-        if ($pdo instanceof PDO) {
-            return $pdo;
-        }
+        $conn = new PDO($this->buildDsn($conf));
+        $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-        return new PDO($this->buildDsn($conf));
+        return $conn;
     }
 
     /**
