@@ -13,6 +13,7 @@ use League\Flysystem\Adapter\Local;
 use League\Flysystem\Cached\CachedAdapter;
 use League\Flysystem\Cached\Storage\Memory;
 use League\Flysystem\Filesystem;
+use League\Flysystem\FilesystemInterface;
 use Psr\Container\ContainerInterface;
 
 class FlysystemModule implements ServiceProvider
@@ -44,7 +45,7 @@ class FlysystemModule implements ServiceProvider
      */
     public function provideServices($container): void
     {
-        $container->singleton(Filesystem::class, function () {
+        $container->singleton(FilesystemInterface::class, function () {
             $adapter = new Local($this->path);
 
             if ($this->cache) {
