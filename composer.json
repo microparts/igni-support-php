@@ -21,14 +21,16 @@
     "microparts/paginateformatter-php": "^1.0",
     "microparts/configuration-php": "^2.0",
     "igniphp/framework": "^2.0",
-    "roquie/database": "dev-master"
+    "roquie/database": "dev-master",
+    "league/flysystem-cached-adapter": "^1.0"
   },
   "suggest": {
     "rakit/validation": "This package is needs to install if u use validation in app.",
     "ramsey/uuid": "This package is need to install if u use uuid validation rule.",
     "microparts/configuration-php": "For usage Configuration module in your application must install [microparts/configuration-php] package",
     "igniphp/framework": "For usage, this package in your application must install this framework.",
-    "roquie/database": "If u want run migrations and seed when application start."
+    "roquie/database": "If u want run migrations and seed when application start.",
+    "league/flysystem-cached-adapter": "If u want use league/flysystem with FlysystemModule."
   },
   "autoload": {
     "psr-4": {
