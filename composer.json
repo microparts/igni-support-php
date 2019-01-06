@@ -30,7 +30,8 @@
     "microparts/configuration-php": "For usage Configuration module in your application must install [microparts/configuration-php] package",
     "igniphp/framework": "For usage, this package in your application must install this framework.",
     "roquie/database": "If u want run migrations and seed when application start.",
-    "league/flysystem-cached-adapter": "If u want use league/flysystem with FlysystemModule."
+    "league/flysystem-cached-adapter": "If u want use league/flysystem with FlysystemModule.",
+    "league/flysystem": "If u want use league/flysystem with FlysystemModule."
   },
   "autoload": {
     "psr-4": {
