@@ -22,6 +22,7 @@ class PostgresPdoModule implements MiddlewareProvider
 {
     /**
      * @param \Igni\Application\Http\MiddlewareAggregator|\Igni\Application\HttpApplication $aggregate
+     * @throws \Illuminate\Container\EntryNotFoundException
      */
     public function provideMiddleware(MiddlewareAggregator $aggregate): void
     {
@@ -73,7 +74,7 @@ class PostgresPdoModule implements MiddlewareProvider
      */
     private function createPdo(ConfigurationInterface $conf)
     {
-        $conn = new PDO($this->buildDsn($conf));
+        $conn = new PDO($this->buildDsn($conf), [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
         return $conn;
