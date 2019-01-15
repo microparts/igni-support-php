@@ -74,8 +74,10 @@ class PostgresPdoModule implements MiddlewareProvider
      */
     private function createPdo(ConfigurationInterface $conf)
     {
-        $conn = new PDO($this->buildDsn($conf), [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-        $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $conn = new PDO($this->buildDsn($conf), null, null, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
 
         return $conn;
     }
