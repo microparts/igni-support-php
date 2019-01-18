@@ -9,6 +9,10 @@ namespace Microparts\Igni\Support\Modules;
 
 use Igni\Application\Http\MiddlewareAggregator;
 use Igni\Application\Providers\MiddlewareProvider;
+use Igni\Network\Exception\HttpException;
+use Igni\Network\Http\Response;
+use Microparts\Igni\Support\Validation\ValidationException;
+use PDOException;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
@@ -91,7 +95,7 @@ class ErrorHandlerModule implements MiddlewareProvider
     }
 
     /**
-     * @param \Microparts\Igni\Support\Modules\ValidationException $exception
+     * @param \Microparts\Igni\Support\Validation\ValidationException $exception
      * @return \Igni\Network\Http\Response
      */
     private function validationFormat(ValidationException $exception)
