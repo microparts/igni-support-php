@@ -105,6 +105,19 @@ class PostgresPdoModule implements MiddlewareProvider
      */
     private function buildDsn(ConfigurationInterface $conf)
     {
-        return "pgsql:dbname={$conf['db.name']};host={$conf['db.host']};user={$conf['db.user']};password={$conf['db.pwd']}";
+        $array = [
+            "dbname={$conf['db.name']}",
+            "host={$conf['db.host']}",
+            "user={$conf['db.user']}",
+            "password={$conf['db.pwd']}",
+        ];
+
+        foreach (['sslmode', 'sslcert', 'sslkey'] as $ssl) {
+            if (strlen((string) $conf['db.' . $ssl]) > 0) {
+                $array[] = "{$ssl}={$conf['db.' . $ssl]}";
+            }
+        }
+
+        return 'pgsql:' . join($array, ';');
     }
 }
