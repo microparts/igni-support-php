@@ -112,9 +112,14 @@ class PostgresPdoModule implements MiddlewareProvider
             "password={$conf['db.pwd']}",
         ];
 
-        foreach (['sslmode', 'sslcert', 'sslkey'] as $ssl) {
-            if (strlen((string) $conf['db.' . $ssl]) > 0) {
-                $array[] = "{$ssl}={$conf['db.' . $ssl]}";
+        $params = [
+            'sslmode', 'sslcert', 'sslkey',
+            'target_session_attrs'
+        ];
+
+        foreach ($params as $param) {
+            if (strlen((string) $conf['db.' . $param]) > 0) {
+                $array[] = "{$param}={$conf['db.' . $param]}";
             }
         }
 
