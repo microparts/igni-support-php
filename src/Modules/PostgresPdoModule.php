@@ -114,7 +114,7 @@ class PostgresPdoModule implements MiddlewareProvider
 
         $params = [
             'sslmode', 'sslcert', 'sslkey',
-            'target_session_attrs', 'sslrootcert'
+            'target_session_attrs', 'sslrootcert', 'port'
         ];
 
         foreach ($params as $param) {
