@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "220bde18ced836fa21737e55b1780b32",
+    "content-hash": "9fe3795e6a0043ba8aed7355771c8613",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -220,6 +220,46 @@
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
             "time": "2018-12-18T13:45:35+00:00"
+        },
+        {
+            "name": "microparts/logs-php",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/microparts/logs-php.git",
+                "reference": "07340a10718c12665ee52421c242c287b514ca97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/microparts/logs-php/zipball/07340a10718c12665ee52421c242c287b514ca97",
+                "reference": "07340a10718c12665ee52421c242c287b514ca97",
+                "shasum": ""
+            },
+            "require": {
+                "monolog/monolog": "^1.24"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.1",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Microparts\\Logger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "roquie",
+                    "email": "roquie0@gmail.com"
+                }
+            ],
+            "description": "Simple pre-configured Monolog wrapper. Without fucking brackets.",
+            "time": "2019-04-29T23:27:03+00:00"
         },
         {
             "name": "monolog/monolog",
