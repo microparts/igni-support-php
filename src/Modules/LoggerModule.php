@@ -6,6 +6,7 @@ use Igni\Application\Providers\ServiceProvider;
 use Microparts\Logger\Logger;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
 
 class LoggerModule implements ServiceProvider
 {
@@ -15,7 +16,11 @@ class LoggerModule implements ServiceProvider
     public function provideServices($container): void
     {
         $container->singleton(LoggerInterface::class, function () {
-            return Logger::new('App', getenv('DEBUG') === 'true');
+            $level = getenv('DEBUG') === 'true'
+                ? LogLevel::DEBUG
+                : LogLevel::INFO;
+
+            return Logger::default(Logger::CHANNEL, $level);
         });
     }
 }
